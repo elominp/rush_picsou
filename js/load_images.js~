@@ -1,0 +1,23 @@
+function upload_image(buffer)
+{
+    alert(buffer);
+}
+
+function load_image(url)
+{
+    var  loader;
+    var  tmp;
+
+    if (url === "undefined")
+	return ("undefined");
+    loader = new FileReader();
+    alert(loader);
+    loader.readAsBinaryString(url);
+}
+
+function ppmtoimg(str)
+{
+    if (str === "undefined")
+	return ("undefined");
+    alert(str);
+}

@@ -1,0 +1,78 @@
+function draw_map(game)
+{
+    var  i;
+    var  j;
+    var  sprite;
+
+    if (game === null)
+	return;
+    i = -1;
+    while (++i < 30)
+	{
+	    j = -1;
+	    while (++j < 50)
+		{
+		    sprite = game.maps[0].world[i][j];
+		    mlj_put_image_to_window(game.fen, game.sprites_bck[sprite],
+					    j * 32, i * 32);
+		}
+	}
+}
+
+function draw_items(game)
+{
+    var  i;
+    var  j;
+    var  sprite;
+
+    if (game === null)
+	return;
+    i = -1;
+    while (++i < 30)
+	{
+	    j = -1;
+	    while (++j < 50)
+		{
+		    sprite = game.maps[0].items[i][j];
+		    if (sprite != 0)
+			mlj_put_image_to_window(game.fen,
+						game.sprites_itm[sprite - 1],
+						j * 32, i * 32);
+		}
+	}
+}
+
+function draw_picsou(game)
+{
+    var  x;
+    var  y;
+
+    if (game === null)
+	return;
+    x = game.perso.pos.x;
+    y = game.perso.pos.y;
+    x = (x < 0) ? 0 : x;
+    y = (y < 0) ? 0 : y;
+    mlj_put_image_to_window(game.fen, game.perso.sprite[0], x, y);
+    update_picsou(game);
+}
+
+function draw_pnjs(game)
+{
+    var  i;
+
+    if (game === null)
+	return;
+    i = -1;
+    while (++i < game.lpnj.length)
+	mlj_put_image_to_window(game.fen, game.lpnj[i].sprite,
+				game.lpnj[i].pos.x, game.lpnj[i].pos.y);
+}
+
+function my_draw(game)
+{
+    draw_map(game);
+    draw_items(game);
+    draw_picsou(game);
+    draw_pnjs(game);
+}

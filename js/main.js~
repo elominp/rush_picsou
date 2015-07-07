@@ -1,0 +1,23 @@
+/*function loadItmSprites()
+{
+}
+
+function loadBckSprites()
+{
+}*/
+
+var game;
+
+function main()
+{
+    var  win;
+    var  welcome;
+
+    mlj_init("Picsou Game");
+    win = mlj_new_window(1600, 960, "#AAAAAA", "game");
+    game = PicsouGame(win);
+    mlj_key_hook(key_event, null);
+    mlj_upload_button(loadFile, game, "game", "upload");
+    welcome = load_image("js/welcome.ppm", win);
+    mlj_put_image_to_window(win, welcome, 0, 0);
+}

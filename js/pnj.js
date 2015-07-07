@@ -1,0 +1,30 @@
+function new_fantome(win, sprite, x, y)
+{
+    var  spritetab;
+    var  struct;
+    var  loc;
+
+    if (sprite === null || win === null || x === null || y === null)
+	return ("undefined");
+    spritetab = loadSpriteSheet("js/fantomes.ppm", win);
+    loc = new_2dpos(x, y);
+    struct = {
+	type: "fantome",
+	pos: loc,
+	sprite: spritetab[sprite],
+    };
+    return (struct);
+}
+
+function new_DefaultListPnjs(win)
+{
+    var  fantomes;
+
+    if (win === null)
+	return ("undefined");
+    fantomes = new Array(3);
+    fantomes[0] = new_fantome(win, 0, 50, 50);
+    fantomes[1] = new_fantome(win, 1, 800, 800);
+    fantomes[2] = new_fantome(win, 2, 1500, 200);
+    return (fantomes);
+}

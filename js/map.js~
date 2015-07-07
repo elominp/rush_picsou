@@ -1,0 +1,28 @@
+function Map(buffer, deb)
+{
+    var  bck;
+    var  itm;
+    var  map;
+    var  i;
+    var  j;
+    var  z;
+
+    i = -1;
+    bck = new Array(30);
+    itm = new Array(30);
+    while (++i < 30)
+    {
+	j = 0;
+	z = -1;
+	bck[i] = new Array(50);
+	itm[i] = new Array(50);
+	while (j < 100)
+	{
+	    bck[i][++z] = buffer[deb + (i * 101) + j];
+	    itm[i][z] = buffer[deb + (i * 101) + j + 1];
+	    j += 2;
+	}
+    }
+    map = { world: bck, items: itm };
+    return (map);
+}
